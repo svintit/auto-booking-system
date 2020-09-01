@@ -7,12 +7,9 @@ from selenium.common.exceptions import (
 
 from auto_booking_system.config import LoginConfig, BookConfig
 
-# [(`email`, `password`), (`email`, `password`)]
-user_list = [("**********", "**********")]
-
 
 def user_list_gen():
-    for details in user_list:
+    for details in LoginConfig.user_list:
         user, pw = details
         yield user, pw
 

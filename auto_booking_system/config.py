@@ -1,4 +1,7 @@
 class Config:
+    # [(`email`, `password`), (`email`, `password`)]
+    user_list = [("**********", "**********")]
+
     url = "https://myflye.flyefit.ie/myflye/book-workout"
 
 
