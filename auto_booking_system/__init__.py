@@ -2,6 +2,13 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 from auto_booking_system.auto_book import main
+from auto_booking_system.config import LoginConfig
+
+
+def user_list_gen():
+    for details in LoginConfig.user_list:
+        user, pw = details
+        yield user, pw
 
 
 def driver():
@@ -16,4 +23,5 @@ def driver():
 
 
 if __name__ == "__main__":
-    main(driver())
+    for user, pw in user_list_gen():
+        main(user, pw, driver())

@@ -6,12 +6,7 @@ from selenium.common.exceptions import (
 )
 
 from auto_booking_system.config import LoginConfig, BookConfig
-
-
-def user_list_gen():
-    for details in LoginConfig.user_list:
-        user, pw = details
-        yield user, pw
+from auto_booking_system.utils import async_no_await
 
 
 class BookWorkout:
@@ -39,12 +34,14 @@ class BookWorkout:
             self.driver.get(LoginConfig.url)
             for xpath in config:
                 self.run_click(xpath)
+
+            print("Booked successfully!")
         except (ElementNotInteractableException, NoSuchElementException):
             self.book()
 
 
-def main(driver):
-    for user, pw in user_list_gen():
-        worker = BookWorkout(driver)
-        worker.login(user, pw)
-        worker.book()
+@async_no_await
+def main(user, pw, driver):
+    worker = BookWorkout(driver)
+    worker.login(user, pw)
+    worker.book()

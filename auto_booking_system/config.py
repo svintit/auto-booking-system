@@ -22,10 +22,10 @@ class BookConfig(Config):
 
     # time to book for
     book_button_xpath = (
-        # Below is 20:30
-        # "/html/body/div[1]/div[1]/div/section/div[4]/div/div[11]/a/div[3]/p[2]"
         # Below is 19:00
-        "/html/body/div[1]/div[1]/div/section/div[4]/div/div[10]/a/div[3]/p[2]"
+        # "/html/body/div[1]/div[1]/div/section/div[4]/div/div[10]/a/div[3]/p[2]"
+        # Below is 20:30
+        "/html/body/div[1]/div[1]/div/section/div[4]/div/div[11]/a/div[3]/p[2]"
     )
 
     confirm_button_xpath = "/html/body/div[1]/div[2]/div/div/div[3]/a[1]"
